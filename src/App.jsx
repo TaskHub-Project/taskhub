@@ -1,22 +1,45 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
-import LandingPage from "./pages/landingpage"
+
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import RootLayout from './layout/rootlayout';
+import LandingPage from './pages/landingpage';
+import SignUp from './pages/authorization/signup';
+import Tasker from './pages/authorization/tasker';
+import Signin from './pages/authorization/signin';
 
 
 
 function App() {
-    const router = createBrowserRouter([
 
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <RootLayout/>,
+      children: [
         {
-            path: "/",
-            element: <LandingPage />
-        }
+          index: true,
+          element: <LandingPage/>
+        },
 
-    ])
+      ]
+    },
 
-    return (
-        <RouterProvider router={router} />
-      )
+    {
+        path: "signup",
+        element: <SignUp/>
+    },
 
-} 
+    {
+        path: "signin",
+        element: <Signin/>
+    },
+
+    {
+        path: "tasker",
+        element: <Tasker/>
+    }
+    
+  ])
+  return <RouterProvider router={router} />;
+}
 
 export default App

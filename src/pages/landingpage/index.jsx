@@ -1,15 +1,18 @@
-import landimg from "../../assets/images/landimg.jpg"
+
+import Navbar from "../../components/navbar"
+import Hero from "./components/hero"
+import PopularProject from "./components/popularproject"
+import Services from "./components/services"
+import Works from "./components/works"
 
 const LandingPage = () => {
   return (
     <div>
 
-      <div>
-        <img className="w-screen h-screen" src={landimg} alt="" />
-
-      </div>
-
-
+      <Hero />
+      <PopularProject />
+      <Services />
+      <Works />
 
     </div>
   )

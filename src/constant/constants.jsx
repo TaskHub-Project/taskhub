@@ -1,9 +1,30 @@
-import React from 'react'
 
-const Constants = () => {
-  return (
-    <div>Constants</div>
-  )
+
+const F = {
+
+  NAVLINKS: [
+    {
+      path: "/",
+      name: ""
+    },
+
+    {
+      name: "Signin",
+      path: "/signin"
+    },
+
+    {
+      name: "Signup",
+      path: "/signup"
+    },
+
+    {
+      name: "Become a Tasker",
+      path: "/tasker"
+    }
+
+  ]
 }
 
-export default Constants
+
+export default F;
