@@ -5,6 +5,8 @@ import LandingPage from './pages/landingpage';
 import SignUp from './pages/authorization/signup';
 import Tasker from './pages/authorization/tasker';
 import Signin from './pages/authorization/signin';
+import AllServices from './pages/authorization/allservices';
+import Reset from './pages/authorization/reset';
 
 
 
@@ -13,31 +15,41 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <RootLayout/>,
+      element: <RootLayout />,
       children: [
         {
           index: true,
-          element: <LandingPage/>
+          element: <LandingPage />
         },
 
       ]
     },
 
     {
-        path: "signup",
-        element: <SignUp/>
+      path: "signup",
+      element: <SignUp />
     },
 
     {
-        path: "signin",
-        element: <Signin/>
+      path: "signin",
+      element: <Signin />
     },
 
     {
-        path: "tasker",
-        element: <Tasker/>
+      path: "reset",
+      element: <Reset />
+    },
+
+    {
+      path: "tasker",
+      element: <Tasker />
+    },
+
+    {
+      path: "service",
+      element: <AllServices />
     }
-    
+
   ])
   return <RouterProvider router={router} />;
 }

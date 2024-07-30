@@ -13,15 +13,16 @@ const Hero = () => {
             placeholder="Search for tasks or professionals..."
             className="w-full max-w-md px-4 py-2 rounded-l-lg border-none focus:outline-none text-black"
           />
-          <datalist  id="tasks">
+          {/* <datalist  id="tasks">
             <option value="Moving" />
             <option value="Repairs" />
             <option value="Cleaning" />
             <option value="Electrician" />
             <option value="Painting" />
-          </datalist>
+            <option value="Carpenter" />
+          </datalist> */}
           <button
-            className="px-6 py-2 bg-white text-blue-500 font-semibold rounded-r-lg shadow-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="px-6 py-2 bg-white text-blue-500 font-semibold rounded-r-lg"
           >
             Search
           </button>
