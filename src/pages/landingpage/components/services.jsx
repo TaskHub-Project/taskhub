@@ -10,7 +10,7 @@ const Services = () => {
     {
       icon: <Hammer className="w-12 h-12" />, 
       label: "Home Repairs",
-      activities: ["Plumbing Helps", "Repairing walls", "Electrical Help", "Light Carpentry", "Flooring and Tiling Help", "Appliance Installation and Repairs"]
+      activities: ["Plumbing Help", "Repairing walls", "Electrical Help", "Light Carpentry", "Flooring and Tiling Help", "Appliance Installation and Repairs"]
     },
     {
       icon: <Truck className="w-12 h-12" />, 
