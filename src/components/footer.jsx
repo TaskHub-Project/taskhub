@@ -42,6 +42,7 @@ const Footer = () => {
             <div className="flex items-center gap-4">
               <Globe2Icon className="w-5 h-5" />
               <span>www.taskerhub.com</span>
+            
             </div>
             <div className="flex gap-4">
               <Facebook />
