@@ -16,7 +16,7 @@ const Navbar = () => {
           <Link 
             key={index} 
             to={item.path} 
-            className={item.name === 'Become a Tasker' ? 'border border-black rounded-lg p-2 mb-5' : ''}
+            className={item.name === 'Login as a Tasker' ?  'border border-black rounded-lg p-2 mb-5' : ''}
           >
             {item.name}
           </Link>

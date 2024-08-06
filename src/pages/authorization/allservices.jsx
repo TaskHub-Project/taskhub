@@ -12,14 +12,14 @@ import paint from "../../assets/images/paint.jpg"
 import movinghelp from "../../assets/images/movinghelp.jpg"
 import trash from "../../assets/images/trash.jpg"
 import truckmove from "../../assets/images/truckmove.avif"
-import smile from "../../assets/images/smile.jpg"
+import transport from "../../assets/images/transport.avif"
 
 const AllServices = () => {
   const navigate = useNavigate()
   return (
     <div>
       <div className="relative">
-        <img src={smile} alt="Transport" className="w-screen h-[500px]" />
+        <img src={transport} alt="Transport" className="w-screen h-[500px]" />
         <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
           <h2 className="text-black h-24  text-4xl font-bold bg-[#FFFFFF] bg-opacity-50 p-4 rounded-lg">
             Choose a service to get started.

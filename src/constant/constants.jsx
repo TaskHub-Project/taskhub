@@ -16,6 +16,11 @@ const F = {
     },
 
     {
+      name : "Services",
+      path: "/service"
+    },
+
+    {
       name: "Signin",
       path: "/signin"
     },
@@ -26,14 +31,15 @@ const F = {
     },
 
     {
-      name : "Explore Services",
-      path: "/service"
-    },
-
-    {
       name: "Become a Tasker",
       path: "/tasker"
-    }
+    },
+
+   
+    {
+      name: "Login as a Tasker",
+      path: "/login"
+    },
 
   ],
 
