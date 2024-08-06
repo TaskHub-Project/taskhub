@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 
 
 const Button = (props) => {
+    
     const {
         variant = 'outline',
         onClick,
@@ -21,6 +23,7 @@ const Button = (props) => {
             onClick={onClick}
             disabled={disabled}
             {...rest}
+    
         >
             {Icon && <Icon className="mr-2" />}
             {children}

@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { Hammer, Paintbrush, Truck } from 'lucide-react';
 import cleantool from "../../../assets/images/cleantool.png";
 import saw from "../../../assets/images/saw.png";
+import { useNavigate } from 'react-router-dom';
 
 const Services = () => {
+  const navigate = useNavigate()
   const [activeService, setActiveService] = useState(null);
 
   const services = [
@@ -39,6 +41,7 @@ const Services = () => {
   };
 
   return (
+    
     <div className='py-16 '>
       <h2 className='text-center text-3xl font-bold mb-8 text-blue-400'>Our Services</h2>
       <div className='flex justify-around flex-wrap'>
@@ -51,10 +54,10 @@ const Services = () => {
             {service.icon}
             <label className='mt-2 text-xl font-semibold '>{service.label}</label>
             {activeService === index && (
-              <div className='mt-2 flex flex-wrap justify-center'>
+              <div className='mt-2 flex flex-wrap justify-center' >
                 {service.activities.map((activity, i) => (
-                  <button key={i} className=' text-black py-1 px-3 m-1 rounded-full border border-blue-400 '>
-                    {activity}
+                  <button key={i} onClick={() => navigate("signin")} className=' text-black py-1 px-3 m-1 rounded-full border border-blue-400 '>
+                    {activity} 
                   </button>
                 ))}
               </div>

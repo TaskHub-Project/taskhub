@@ -1,8 +1,9 @@
-import React from 'react'
+
 
 const Tasker = () => {
+  
   return (
-    <div>Tasker</div>
+    <div>tasker</div>
   )
 }
 

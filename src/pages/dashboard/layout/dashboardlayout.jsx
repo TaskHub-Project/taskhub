@@ -1,8 +1,18 @@
-import React from 'react'
+
+import { Outlet } from 'react-router-dom'
+import Footer from '../../../components/footer'
+
 
 const DashboardLayout = () => {
   return (
-    <div>DashboardLayout</div>
+    <div>
+     
+     
+      <Outlet/>
+      
+      
+      
+    </div>
   )
 }
 

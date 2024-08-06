@@ -10,6 +10,8 @@ import DashBoardHome from './pages/dashboard/pages/home';
 import Account from './pages/dashboard/pages/account';
 import BookTask from './pages/dashboard/pages/booktask';
 import MyTasks from './pages/dashboard/pages/mytasks';
+import DashboardLayout from './pages/dashboard/layout/dashboardlayout';
+import BookForm from './pages/dashboard/pages/bookform';
 
 function App() {
   const router = createBrowserRouter([
@@ -44,22 +46,37 @@ function App() {
       element: <Tasker />
     },
 
+    {
+      path: "form",
+      element: <BookForm/>
+    },
+
 
     {
-      path: 'dashboard/booktask',
-      element: <DashBoardHome />,
+      path: 'dashboard',
+      element: <DashboardLayout/>,
       children: [
         {
-          path: 'account',
+          path: '', 
+          element: <DashBoardHome />
+        },
+        {
+          path: 'booktask', 
+          element: <BookTask />
+        },
+        {
+          path: 'dashboard/account',
           element: <Account />
         },
-        
         {
-          path: 'tasks',
+          path: 'dashboard/tasks', 
           element: <MyTasks />
         }
+
+        
       ]
     }
+    
   ]);
   
   return <RouterProvider router={router} />;
