@@ -16,7 +16,7 @@ const F = {
     },
 
     {
-      name : "Services",
+      name: "Services",
       path: "/service"
     },
 
@@ -35,11 +35,55 @@ const F = {
       path: "/tasker"
     },
 
-   
+
     {
       name: "Login as a Tasker",
       path: "/login"
     },
+
+  ],
+
+  NOTIFY: [
+
+    {
+      title: "Task Updates",
+      email: <input type="checkbox" name="" id="" />,
+      sms: <input type="checkbox" name="" id="" />,
+      push: <input type="checkbox" name="" id="" />
+    },
+    {
+      title: "Promotional Emails and Notifications",
+      email: <input type="checkbox" name="" id="" />,
+      sms: <input type="checkbox" name="" id="" />,
+      push: <input type="checkbox" name="" id="" />
+    }
+
+
+  ],
+
+  TASKS: [
+
+    {
+      title: "Deep Cleaning",
+      location: "Saalai Street, North Kaneshie",
+      house: "Adom Villa, Apt #25",
+      type: "Medium",
+      description: "I need a thorough cleaning in my new house,it's a storey building with 5 bedroom, 5 washroom and a garage",
+      date: "Friday, 30/08/2024",
+      time: "Morning, 10am - 12pm"
+
+    },
+    {
+      title: "Toilet Replacement",
+      location: "Mukose Street, Dansoman",
+      house: "Adom Villa, Apt #65",
+      type: "Medium",
+      description: "I need a thorough cleaning in my new house,it's a storey building with 5 bedroom, 5 washroom and a garage",
+      date: "Thursday, 29/08/2024",
+      time: "Morning, 1pm - 3pm"
+
+    }
+
 
   ],
 

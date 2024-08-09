@@ -15,7 +15,7 @@ const PopularProject = () => {
         {F.PROJECTS.map((project, index) => {
           return (
             <div key={index} className="project-card">
-              <div className="project-card-inner" onClick={() => navigate("signup")}>
+              <div className="project-card-inner" onClick={() => navigate("signin")}>
                 <div className="project-image rounded">
                   <img src={project.image} alt={project.image} />
                 </div>

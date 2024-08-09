@@ -14,9 +14,10 @@ const Account = () => {
         <h3 className="text-3xl font-bold" onClick={() => navigate("/")}>TaskerHub</h3>
 
         <div className="space-x-8">
-          <Link to="/dashboard/booktask" className="font-semibold">Book a Task</Link>
+          
           <Link to="/dashboard/dashboard/tasks" className="font-semibold">My Tasks</Link>
           <Link to="/dashboard/dashboard/account" className="font-semibold">Profile</Link>
+          <Link to="/dashboard/booktask" className="font-semibold">Notification</Link>
         </div>
       </div>
 

@@ -8,11 +8,16 @@ import AllServices from './pages/authorization/allservices';
 import Reset from './pages/authorization/reset';
 import DashBoardHome from './pages/dashboard/pages/home';
 import Account from './pages/dashboard/pages/account';
-import BookTask from './pages/dashboard/pages/booktask';
+import BookTask from './pages/dashboard/pages/notification';
 import MyTasks from './pages/dashboard/pages/mytasks';
 import DashboardLayout from './pages/dashboard/layout/dashboardlayout';
 import BookForm from './pages/dashboard/pages/bookform';
-import Login from './pages/becometasker/Login';
+import Login from './pages/becometasker/Login'
+import TaskerDashboardLayout from './pages/becometasker/dashboard/layout/taskdashboardlayout';
+import TaskerDashBoardHome from './pages/becometasker/dashboard/pages/home';
+
+import Professionals from "./pages/dashboard/pages/professionals"
+import MoreServices from './pages/dashboard/pages/moreservice';
 
 
 function App() {
@@ -57,6 +62,23 @@ function App() {
       element: <BookForm />
     },
 
+    {
+      path: "prof",
+      element: <Professionals />
+    },
+    {
+      path: "more",
+      element: <MoreServices/>
+    },
+
+
+
+    // {
+    //   path: "side",
+    //   element:  <SideBar />
+    // },
+
+
 
     {
       path: 'dashboard',
@@ -67,7 +89,7 @@ function App() {
           element: <DashBoardHome />
         },
         {
-          path: 'booktask',
+          path: 'dashboard/booktask',
           element: <BookTask />
         },
         {
@@ -77,11 +99,38 @@ function App() {
         {
           path: 'dashboard/tasks',
           element: <MyTasks />
-        }
+        },
+
+        
+      ]
+    },
+
+    {
+      path: "taskerdash",
+      element: <TaskerDashboardLayout />,
+      children: [
+        {
+          path: "",
+          element: <TaskerDashBoardHome />
+        },
+        // {
+        //   path: "taskerdash/profile",
+        //   element: <Profile />
+        // },
+
+        // {
+        //   path: "taskerdash/bookings",
+        //   element: <MyBookings />
+        // }
 
 
       ]
+
+
+
     }
+
+
 
   ]);
 

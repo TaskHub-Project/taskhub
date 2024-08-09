@@ -1,12 +1,12 @@
 import { FaLock, FaUser } from "react-icons/fa";
-import womankitchen from "../../assets/images/womankitchen.jpg";
+import toolss from "../../assets/images/toolss.jpg";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
     const navigate = useNavigate()
   return (
-    <div className="m-0 p-0 box-border flex justify-center items-center min-h-screen bg-blue-400 bg-cover bg-center" style={{ backgroundImage: `url(${womankitchen})` }}>
-    <div className="bg-[#737590] bg-opacity-80 w-[420px] text-white p-6 rounded-lg shadow-lg">
+    <div className="m-0 p-0 box-border flex justify-center items-center min-h-screen bg-blue-400 bg-cover bg-center" style={{ backgroundImage: `url(${toolss})` }}>
+    <div className="bg-[#244A89] bg-opacity-80 w-[420px] text-white p-6 rounded-lg shadow-lg">
       <form>
         <h1 className="font-extrabold text-3xl text-center mb-6">Become a Tasker</h1>
 
