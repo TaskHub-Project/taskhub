@@ -2,7 +2,10 @@ import React from 'react'
 
 const AccountCard = () => {
   return (
-    <div>AccountCard</div>
+    <div>
+
+      
+    </div>
   )
 }
 

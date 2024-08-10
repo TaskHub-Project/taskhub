@@ -1,9 +1,48 @@
 import { ArrowBigUp } from "lucide-react";
 import tools from "../../assets/images/tools.jpg";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { apiSignUp } from "../../services/auth";
+import Loader from "../../components/loader";
+import { useState } from "react";
 
-const Tasker = () => {
+const SignnUp = () => {
   const navigate = useNavigate();
+  const {handleSubmit , register, formState: {errors}}  = useForm({ reValidateMode: "onBlur", mode: "all" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const onSubmit = async (data) => {
+    console.log(data);
+    setIsSubmitting(true)
+    let payload = {
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+      password: data.password,
+      selectACategory: data.selectACategory
+
+    }
+
+    try {
+      const res = await apiSignUp(payload);
+      console.log(res.data);
+
+      toast.success(res.data.message);
+      navigate("/login")
+
+    } catch (error) {
+      console.log(error)
+      toast.error("An error occured!")
+    } finally {
+      setIsSubmitting(false)
+    }
+
+  };
+
+
+
+
+
 
   return (
     <div
@@ -11,7 +50,7 @@ const Tasker = () => {
       style={{ backgroundImage: `url(${tools})` }}
     >
       <div className="bg-[#A5927D] bg-opacity-90 w-full max-w-lg mx-4 p-8 rounded-lg shadow-xl">
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <h1 className="font-extrabold text-3xl text-center mb-8">Sign Up to Become a Tasker</h1>
 
           <div className="mb-4">
@@ -21,7 +60,10 @@ const Tasker = () => {
               placeholder="First Name"
               required
               className="w-full p-3 rounded-lg text-black placeholder-gray-700 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              {...register("firstName", { required: "First name is required" })}
+              aria-invalid={errors.firstName ? "true" : "false"}
             />
+            {errors.firstName && (<p className="text-red-500 text-sm mt-1">{errors.firstName.message}</p>)}
           </div>
 
           <div className="mb-4">
@@ -31,7 +73,10 @@ const Tasker = () => {
               placeholder="Last Name"
               required
               className="w-full p-3 rounded-lg text-black placeholder-gray-700 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              {...register("lastName", { required: "Last name is required" })}
+              aria-invalid={errors.lastName ? "true" : "false"}
             />
+            {errors.lastName && (<p className="text-red-500 text-sm mt-1">{errors.lastName.message}</p>)}
           </div>
 
           <div className="mb-4">
@@ -41,7 +86,10 @@ const Tasker = () => {
               placeholder="Enter Email"
               required
               className="w-full p-3 rounded-lg text-black placeholder-gray-700 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              {...register("email", { required: "email is required" })}
+              aria-invalid={errors.email ? "true" : "false"}
             />
+            {errors.email && (<p className="text-red-500 text-sm mt-1">{errors.email.message}</p>)}
           </div>
 
           <div className="mb-4 flex items-center">
@@ -61,6 +109,7 @@ const Tasker = () => {
               type="tel"
               placeholder="Phone Number"
               className="w-full p-3 rounded-lg text-black placeholder-gray-700 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              {...register("phoneNumber",)}
             />
           </div>
 
@@ -68,6 +117,7 @@ const Tasker = () => {
             <select
               className="w-full p-3 rounded-lg text-black placeholder-gray-700 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
               defaultValue=""
+              {...register("selectACategory", { required: "selectACategory is required" })}
             >
               
               <option>Select Category</option>
@@ -80,21 +130,23 @@ const Tasker = () => {
             </select>
           </div>
 
-          <div className="mb-4">
+          {/* <div className="mb-4">
             <input
               type="text"
               placeholder="About"
               className="w-full p-3 rounded-lg text-black placeholder-gray-700 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              {...register("About",)}
             />
-          </div>
+          </div> */}
 
-          <div className="mb-4">
+          {/* <div className="mb-4">
             <input
               type="text"
               placeholder="Enter your Location"
               className="w-full p-3 rounded-lg text-black placeholder-gray-700 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              {...register("Location",)}
             />
-          </div>
+          </div> */}
 
           <div className="mb-4">
             <input
@@ -103,10 +155,11 @@ const Tasker = () => {
               placeholder="Enter Password"
               required
               className="w-full p-3 rounded-lg text-black placeholder-gray-700 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              {...register("password", { required: "password is required" })}
             />
           </div>
 
-          <div className="mb-6 flex items-center space-x-4">
+          {/* <div className="mb-6 flex items-center space-x-4">
             <div className="flex items-center space-x-2">
               <ArrowBigUp size={24} />
               <h3>Upload Image</h3>
@@ -120,13 +173,13 @@ const Tasker = () => {
                 name="flier"
               />
             </label>
-          </div>
+          </div> */}
 
           <button
             type="submit"
             className="w-full bg-blue-600 text-white p-3 rounded-lg font-semibold "
           >
-            Sign Up
+            {isSubmitting ? <Loader/> :"Sign Up"}
           </button>
 
           <p className="mt-4 text-center text-sm text-black">
@@ -150,4 +203,4 @@ const Tasker = () => {
   );
 };
 
-export default Tasker;
+export default SignnUp;

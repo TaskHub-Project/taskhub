@@ -1,9 +1,49 @@
 
+import { useForm } from "react-hook-form";
 import port from "../../assets/images/port.jpg";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import Loader from "../../components/loader";
+import { apiSignUp } from "../../services/auth";
+import { toast } from "react-toastify";
 
 const Signup = () => {
   const navigate = useNavigate();
+  const { register, handleSubmit,  formState: { errors } } = useForm({ reValidateMode: "onBlur", mode: "all" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+
+
+
+
+  const onSubmit = async (data) => {
+    console.log(data);
+    setIsSubmitting(true)
+    let payload = {
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+      phoneNumber: data.phoneNumber,
+      password: data.password
+
+    }
+
+    try {
+      const res = await apiSignUp(payload);
+      console.log(res.data);
+
+      toast.success(res.data.message);
+      navigate("/signin")
+
+    } catch (error) {
+      console.log(error)
+      toast.error("An error occured!")
+    } finally {
+      setIsSubmitting(false)
+    }
+
+  };
+
 
   return (
     <div
@@ -11,7 +51,7 @@ const Signup = () => {
       style={{ backgroundImage: `url(${port})` }}
     >
       <div className="bg-[#17212D] bg-opacity-80 w-[420px] text-white p-8 rounded-lg shadow-lg">
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <h1 className="font-extrabold text-3xl text-center mb-6">TaskerHub</h1>
 
           <div className="mb-6">
@@ -21,7 +61,10 @@ const Signup = () => {
               placeholder="First Name"
               required
               className="w-full p-2 rounded-lg bg-transparent text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              {...register("firstName", { required: "First name is required" })}
+              aria-invalid={errors.firstName ? "true" : "false"}
             />
+            {errors.firstName && (<p className="text-red-500 text-sm mt-1">{errors.firstName.message}</p>)}
           </div>
 
           <div className="mb-6">
@@ -31,7 +74,11 @@ const Signup = () => {
               placeholder="Last Name"
               required
               className="w-full p-2 rounded-lg bg-transparent text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              {...register("lastName", { required: "Last name is required" })}
+              aria-invalid={errors.lastName ? "true" : "false"}
+
             />
+            {errors.lastName && (<p className="text-red-500 text-sm mt-1">{errors.lastName.message}</p>)}
           </div>
 
           <div className="mb-6 relative">
@@ -41,7 +88,10 @@ const Signup = () => {
               placeholder="Enter Email"
               required
               className="w-full p-2 rounded-lg bg-transparent text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              {...register("email", { required: "Email is required" })}
+              aria-invalid={errors.email ? "true" : "false"}
             />
+            {errors.email && (<p className="text-red-500 text-sm mt-1">{errors.email.message}</p>)}
           </div>
 
           <div className="mb-6 flex items-center">
@@ -62,7 +112,10 @@ const Signup = () => {
               type="tel"
               placeholder="Phone Number"
               className="w-full p-2 rounded-lg bg-transparent text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              {...register("phoneNumber", { required: "Phone number is required" })}
+              aria-invalid={errors.phoneNumber ? "true" : "false"}
             />
+            {errors.phoneNumber && (<p className="text-red-500 text-sm mt-1">{errors.phoneNumber.message}</p>)}
           </div>
 
           <div className="mb-6 relative">
@@ -72,14 +125,16 @@ const Signup = () => {
               placeholder="Enter Password"
               required
               className="w-full p-2 rounded-lg bg-transparent text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              {...register("password", { required: "Password is required" })}
             />
+            {errors.password && (<p className="text-red-500 text-sm mt-1">{errors.password.message}</p>)}
           </div>
 
           <button
             type="submit"
             className="w-full bg-blue-600 text-white p-2 rounded-lg font-semibold"
           >
-            Sign Up
+            {isSubmitting ? <Loader /> : "Sign Up"}
           </button>
 
           <p className="mt-4 text-center text-sm">

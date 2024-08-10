@@ -2,7 +2,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import RootLayout from './layout/rootlayout';
 import LandingPage from './pages/landingpage';
 import SignUp from './pages/authorization/signup';
-import Tasker from './pages/authorization/tasker';
+import Tasker from './pages/authorization/signnup';
 import Signin from './pages/authorization/signin';
 import AllServices from './pages/authorization/allservices';
 import Reset from './pages/authorization/reset';
@@ -18,6 +18,7 @@ import TaskerDashBoardHome from './pages/becometasker/dashboard/pages/home';
 
 import Professionals from "./pages/dashboard/pages/professionals"
 import MoreServices from './pages/dashboard/pages/moreservice';
+import SignnUp from './pages/authorization/signnup';
 
 
 function App() {
@@ -50,7 +51,7 @@ function App() {
     },
     {
       path: 'tasker',
-      element: <Tasker />
+      element: <SignnUp/>
     },
     {
       path: 'login',
