@@ -2,7 +2,6 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import RootLayout from './layout/rootlayout';
 import LandingPage from './pages/landingpage';
 import SignUp from './pages/authorization/signup';
-import Tasker from './pages/authorization/signnup';
 import Signin from './pages/authorization/signin';
 import AllServices from './pages/authorization/allservices';
 import Reset from './pages/authorization/reset';
@@ -15,10 +14,10 @@ import BookForm from './pages/dashboard/pages/bookform';
 import Login from './pages/becometasker/Login'
 import TaskerDashboardLayout from './pages/becometasker/dashboard/layout/taskdashboardlayout';
 import TaskerDashBoardHome from './pages/becometasker/dashboard/pages/home';
-
 import Professionals from "./pages/dashboard/pages/professionals"
 import MoreServices from './pages/dashboard/pages/moreservice';
 import SignnUp from './pages/authorization/signnup';
+import AddPofile from './pages/becometasker/dashboard/pages/addprofile';
 
 
 function App() {
@@ -72,12 +71,13 @@ function App() {
       element: <MoreServices/>
     },
 
+    {
+      path: "profile",
+      element: <AddPofile/>
+    },
 
 
-    // {
-    //   path: "side",
-    //   element:  <SideBar />
-    // },
+
 
 
 
@@ -114,18 +114,11 @@ function App() {
           path: "",
           element: <TaskerDashBoardHome />
         },
-        // {
-        //   path: "taskerdash/profile",
-        //   element: <Profile />
-        // },
+        
 
-        // {
-        //   path: "taskerdash/bookings",
-        //   element: <MyBookings />
-        // }
+      ],
 
-
-      ]
+      
 
 
 

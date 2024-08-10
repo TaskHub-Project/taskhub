@@ -1,10 +1,10 @@
-import { Link, useNavigate } from "react-router-dom";
-
-import { Copy, Edit, Plus, Trash2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Edit, Trash2 } from "lucide-react";
 import F from "../constant/constants";
 
 const BookingCard = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
   return (
     <main className="flex-grow p-8 bg-gray-50">
       <div className="text-center mb-12">
@@ -12,10 +12,8 @@ const BookingCard = () => {
       </div>
 
       <div className="flex flex-wrap justify-center gap-8">
-
-        {
-          F.TASKS.map(() => (
-
+        {F.TASKS.length > 0 ? (
+          F.TASKS.map((task, index) => (
             <div
               key={index}
               className="bg-white border border-gray-200 rounded-lg shadow-lg p-6 max-w-sm transition-transform transform hover:scale-105"
@@ -28,23 +26,32 @@ const BookingCard = () => {
               <p className="text-gray-600 mb-1 font-semibold">{task.date}</p>
               <p className="text-gray-600 font-semibold">{task.time}</p>
 
-              <div className="py-2 border-b border-gray-200">
-                <div className="flex justify-center gap-4">
-                  <Edit className="text-blue-400 w-4 h-4 cursor-pointer" />
-                  <Trash2 className="text-red-400 w-4 h-4 cursor-pointer" />
-                </div>
+              <div className="flex justify-between mt-4">
+                <button
+                
+                  className="flex items-center text-blue-600 hover:text-blue-800"
+                >
+                  <Edit className="w-5 h-5 mr-1" />
+                  Edit
+                </button>
+                <button
+                  
+                  className="flex items-center text-red-600 hover:text-red-800"
+                >
+                  <Trash2 className="w-5 h-5 mr-1" />
+                  Delete
+                </button>
               </div>
             </div>
-
-
           ))
-        }
-
-
+        ) : (
+          <div className="text-center">
+            <p className="text-gray-600">No bookings available.</p>
+          </div>
+        )}
       </div>
     </main>
+  );
+};
 
-  )
-}
-
-export default BookingCard
+export default BookingCard;

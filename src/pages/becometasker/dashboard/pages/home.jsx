@@ -29,7 +29,7 @@ const TaskerDashBoardHome = () => {
             <div onClick={() => handleLinkClick('API-keys')} className="cursor-pointer flex flex-col items-center gap-2 py-3 group">
               <span className="flex items-center gap-2 text-gray-500 group-hover:text-blue-600 transition">
                 
-                <RiAccountBoxLine className="w-5 h-5" /> Account
+                <RiAccountBoxLine className="w-5 h-5" /> Profile
               </span>
               <span className="h-0.5 w-0 bg-transparent transition-all group-hover:w-24 group-hover:bg-blue-500"></span>
             </div>

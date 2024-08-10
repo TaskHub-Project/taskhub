@@ -8,14 +8,21 @@ import { Copy, Edit, Plus, Trash2 } from "lucide-react";
 const MyTasks = () => {
   const navigate = useNavigate();
 
+
   return (
     <div className="min-h-screen flex flex-col justify-between">
       <header className="flex justify-between items-center py-6 px-12 bg-gray-100 shadow-md">
         <h3 className="text-3xl font-bold text-gray-800">TaskerHub</h3>
         <nav className="space-x-8">
-          <Link to="/dashboard/dashboard/tasks" className="font-semibold text-gray-600 hover:text-gray-800">My Tasks</Link>
-          <Link to="/dashboard/dashboard/account" className="font-semibold text-gray-600 hover:text-gray-800">Profile</Link>
-          <Link to="/dashboard/dashboard/booktask" className="font-semibold text-gray-600 hover:text-gray-800">Notification</Link>
+          <Link to="/dashboard/dashboard/tasks" className="font-semibold text-gray-600 hover:text-gray-800">
+            My Tasks
+          </Link>
+          <Link to="/dashboard/dashboard/account" className="font-semibold text-gray-600 hover:text-gray-800">
+            Profile
+          </Link>
+          <Link to="/dashboard/dashboard/booktask" className="font-semibold text-gray-600 hover:text-gray-800">
+            Notification
+          </Link>
         </nav>
       </header>
 
@@ -39,11 +46,21 @@ const MyTasks = () => {
                 <p className="text-gray-600 mb-1 font-semibold">{task.date}</p>
                 <p className="text-gray-600 font-semibold">{task.time}</p>
 
-                <div className="py-2 border-b border-gray-200">
-                  <div className="flex justify-center gap-4">
-                    <Edit className="text-blue-400 w-4 h-4 cursor-pointer" />
-                    <Trash2 className="text-red-400 w-4 h-4 cursor-pointer" />
-                  </div>
+                <div className="flex justify-between mt-4">
+                  <button
+                    
+                    className="flex items-center text-blue-600 hover:text-blue-800"
+                  >
+                    <Edit className="w-5 h-5 mr-1" />
+                    Edit
+                  </button>
+                  <button
+                    
+                    className="flex items-center text-red-600 hover:text-red-800"
+                  >
+                    <Trash2 className="w-5 h-5 mr-1" />
+                    Delete
+                  </button>
                 </div>
               </div>
             ))
@@ -57,8 +74,6 @@ const MyTasks = () => {
               </div>
             </div>
           )}
-
-
         </div>
       </main>
 

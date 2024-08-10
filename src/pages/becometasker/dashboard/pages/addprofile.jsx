@@ -1,9 +1,9 @@
 import React from 'react'
 
-const AddpPofile = () => {
+const AddPofile = () => {
   return (
     <div>AddpPofile</div>
   )
 }
 
-export default AddpPofile
+export default AddPofile

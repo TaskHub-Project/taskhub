@@ -1,10 +1,10 @@
-import { ArrowBigUp } from "lucide-react";
+
 import tools from "../../assets/images/tools.jpg";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { apiSignUp } from "../../services/auth";
 import Loader from "../../components/loader";
 import { useState } from "react";
+import { apiSignUp } from "../../services/tasker";
 
 const SignnUp = () => {
   const navigate = useNavigate();
@@ -19,7 +19,8 @@ const SignnUp = () => {
       lastName: data.lastName,
       email: data.email,
       password: data.password,
-      selectACategory: data.selectACategory
+      selectACategory: data.selectACategory,
+      termsAccepted:  data.termsAccepted
 
     }
 
@@ -28,7 +29,7 @@ const SignnUp = () => {
       console.log(res.data);
 
       toast.success(res.data.message);
-      navigate("/login")
+      navigate("login")
 
     } catch (error) {
       console.log(error)
