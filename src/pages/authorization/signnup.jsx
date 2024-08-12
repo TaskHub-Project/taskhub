@@ -5,10 +5,11 @@ import { useForm } from "react-hook-form";
 import Loader from "../../components/loader";
 import { useState } from "react";
 import { apiSignUp } from "../../services/tasker";
+import { toast } from "react-toastify";
 
 const SignnUp = () => {
   const navigate = useNavigate();
-  const {handleSubmit , register, formState: {errors}}  = useForm({ reValidateMode: "onBlur", mode: "all" });
+  const { handleSubmit, register, formState: { errors } } = useForm({ reValidateMode: "onBlur", mode: "all" });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const onSubmit = async (data) => {
@@ -20,7 +21,7 @@ const SignnUp = () => {
       email: data.email,
       password: data.password,
       selectACategory: data.selectACategory,
-      termsAccepted:  data.termsAccepted
+      termsAccepted: true
 
     }
 
@@ -29,7 +30,7 @@ const SignnUp = () => {
       console.log(res.data);
 
       toast.success(res.data.message);
-      navigate("login")
+      navigate("/login")
 
     } catch (error) {
       console.log(error)
@@ -39,11 +40,6 @@ const SignnUp = () => {
     }
 
   };
-
-
-
-
-
 
   return (
     <div
@@ -120,7 +116,7 @@ const SignnUp = () => {
               defaultValue=""
               {...register("selectACategory", { required: "selectACategory is required" })}
             >
-              
+
               <option>Select Category</option>
               <option>Electrician</option>
               <option>Plumber</option>
@@ -129,6 +125,7 @@ const SignnUp = () => {
               <option>Carpenter</option>
               <option>Driver</option>
             </select>
+            {errors.selectACategory && (<p className="text-red-500 text-sm mt-1">{errors.selectACategory.message}</p>)}
           </div>
 
           {/* <div className="mb-4">
@@ -180,12 +177,12 @@ const SignnUp = () => {
             type="submit"
             className="w-full bg-blue-600 text-white p-3 rounded-lg font-semibold "
           >
-            {isSubmitting ? <Loader/> :"Sign Up"}
+            {isSubmitting ? <Loader /> : "Sign Up"}
           </button>
 
           <p className="mt-4 text-center text-sm text-black">
             By creating an account, you agree to our{" "}
-            <a href="#" className="text-blue-800 underline">
+            <a href="#" className="text-blue-800 underline" >
               Terms & Conditions
             </a>.
           </p>
@@ -199,6 +196,7 @@ const SignnUp = () => {
             </p>
           </div>
         </form>
+
       </div>
     </div>
   );
