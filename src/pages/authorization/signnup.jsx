@@ -83,6 +83,7 @@ const SignnUp = () => {
               placeholder="Enter Email"
               required
               className="w-full p-3 rounded-lg text-black placeholder-gray-700 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              
               {...register("email", { required: "email is required" })}
               aria-invalid={errors.email ? "true" : "false"}
             />
