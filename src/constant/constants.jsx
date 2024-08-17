@@ -65,6 +65,9 @@ const F = {
 
     {
       title: "Deep Cleaning",
+      name: "Akosua Mansa",
+      email: "akosua@gmail.com",
+      telephoneNumber: +233540914567,
       location: "Saalai Street, North Kaneshie",
       house: "Adom Villa, Apt #25",
       type: "Medium",
@@ -75,6 +78,9 @@ const F = {
     },
     {
       title: "Toilet Replacement",
+      name: "Kelvin Mensah",
+      email: "mensah@gmail.com",
+      telephoneNumber: +233540612597,
       location: "Mukose Street, Dansoman",
       house: "Adom Villa, Apt #65",
       type: "Medium",

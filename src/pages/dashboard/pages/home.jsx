@@ -7,7 +7,7 @@ const DashBoardHome = () => {
     return (
         <div>
             <div className="flex justify-around py-12 ">
-                <h3 className="text-3xl font-bold" onClick={() => navigate("/")}>TaskerHub</h3>
+                <h3 className="text-3xl font-bold" onClick={() => navigate("/")}>TaskHub</h3>
 
                 <div className="space-x-8">
                     

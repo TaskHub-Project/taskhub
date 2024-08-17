@@ -39,7 +39,7 @@ const Signin = () => {
     <div className="m-0 p-0 box-border flex justify-center items-center min-h-screen bg-blue-400 bg-cover bg-center" style={{ backgroundImage: `url(${assembly})` }}>
       <div className="bg-[#17212D] bg-opacity-80 w-[420px] text-white p-6 rounded-lg shadow-lg">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <h1 className="font-extrabold text-3xl text-center mb-6">TaskerHub</h1>
+          <h1 className="font-extrabold text-3xl text-center mb-6">TaskHub</h1>
 
           <div className="flex relative mb-4">
             <input
