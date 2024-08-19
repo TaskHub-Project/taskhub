@@ -14,6 +14,9 @@ const BookForm = () => {
     console.log(data);
     setIsSubmitting(true);
     let payload = {
+      fullName: data.fullName,
+      email: data.email,
+      telePhoneNumber: data.telePhoneNumber,
       location: data.location,
       taskOptions: data.taskOptions,
       taskDate: data.taskDate,
@@ -48,7 +51,8 @@ const BookForm = () => {
                 type="text" 
                 className='h-12 w-full rounded-lg px-4 border border-gray-300 focus:outline-none focus:border-blue-500' 
                 placeholder='Fullname'
-                {...register("fullname")} 
+                {...register("fullName", { required: "Fullname is required" })}
+                aria-invalid={errors.lastName ? "true" : "false"}
               />
             </div>
 
@@ -58,7 +62,8 @@ const BookForm = () => {
                 type="email" 
                 className='h-12 w-full rounded-lg px-4 border border-gray-300 focus:outline-none focus:border-blue-500' 
                 placeholder='Email'
-                {...register("email")} 
+                {...register("email", { required: "email is required" })}
+                aria-invalid={errors.email ? "true" : "false"} 
               />
             </div>
 
@@ -68,7 +73,8 @@ const BookForm = () => {
                 type="text" 
                 className='h-12 w-full rounded-lg px-4 border border-gray-300 focus:outline-none focus:border-blue-500' 
                 placeholder='Telephone Number'
-                {...register("telephone")} 
+                {...register("TelephoneNumber", { required: "TelephoneNumber is required" })}
+                aria-invalid={errors.telePhoneNumber ? "true" : "false"}
               />
             </div>
 
@@ -78,7 +84,8 @@ const BookForm = () => {
                 type="text" 
                 className='h-12 w-full rounded-lg px-4 border border-gray-300 focus:outline-none focus:border-blue-500' 
                 placeholder='Street address'
-                {...register("location")} 
+                {...register("location", { required: "location is required" })}
+                aria-invalid={errors.location ? "true" : "false"} 
               />
               {errors.location && <p className="text-red-500 text-sm mt-1">{errors.location.message}</p>}
             </div>
@@ -89,7 +96,8 @@ const BookForm = () => {
                 <div>
                   <input 
                     type="checkbox" 
-                    {...register("taskOptions")} 
+                    {...register("taskoption", { required: "taskoption is required" })}
+                    aria-invalid={errors.taskOption ? "true" : "false"}
                     value="Small" 
                     className='mr-2'
                   />
@@ -98,7 +106,8 @@ const BookForm = () => {
                 <div>
                   <input 
                     type="checkbox" 
-                    {...register("taskOptions")} 
+                    {...register("taskoption", { required: "taskoption is required" })}
+                    aria-invalid={errors.taskOption ? "true" : "false"}
                     value="Medium" 
                     className='mr-2'
                   />
@@ -107,7 +116,8 @@ const BookForm = () => {
                 <div>
                   <input 
                     type="checkbox" 
-                    {...register("taskOptions")} 
+                    {...register("taskoption", { required: "taskoption is required" })}
+                    aria-invalid={errors.taskOption ? "true" : "false"}
                     value="Large" 
                     className='mr-2'
                   />
@@ -121,7 +131,8 @@ const BookForm = () => {
               <textarea 
                 className='w-full h-32 rounded-lg px-4 border border-gray-300 focus:outline-none focus:border-blue-500 resize-none' 
                 placeholder='Provide a detailed summary of what you need for your Tasker.'
-                {...register("details")} 
+                {...register("details", { required: "details is required" })}
+                aria-invalid={errors.details ? "true" : "false"}
               />
             </div>
 
@@ -131,7 +142,8 @@ const BookForm = () => {
                 <input 
                   type="date" 
                   className='border border-gray-300 h-12 w-full rounded-lg px-4 focus:outline-none focus:border-blue-500'
-                  {...register("taskDate")} 
+                  {...register("taskDate", { required: "taskDate is required" })}
+                  aria-invalid={errors.taskDate ? "true" : "false"}
                 />
               </div>
               <div>
@@ -139,7 +151,8 @@ const BookForm = () => {
                 <input 
                   type="time" 
                   className='border border-gray-300 h-12 w-full rounded-lg px-4 focus:outline-none focus:border-blue-500'
-                  {...register("startTime")} 
+                  {...register("startTime", { required: "startTime is required" })}
+                  aria-invalid={errors.startTime ? "true" : "false"}
                 />
               </div>
             </div>

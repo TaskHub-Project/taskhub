@@ -6,7 +6,7 @@ const Navbar = () => {
   const navigate = useNavigate()
   return (
     <div className='flex justify-around pt-4'>
-      <h2 className='text-2xl font-bold' onClick={() => navigate("/")}>TaskerHub</h2>
+      <h2 className='text-2xl font-bold' onClick={() => navigate("/")}>TaskHub</h2>
 
       <div className='flex gap-9 font-semibold rounded '>
   {
